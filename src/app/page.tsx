@@ -10,8 +10,8 @@ async function Images() {
   });
   return (
     <div className="flex flex-wrap">
-      {[...images, ...images, ...images].map((image, index) => (
-        <div key={image.id + "-" + index} className="flex flex-col w-1/3 items-center">
+      {images.map((image, index) => (
+        <div key={image.id} className="flex flex-col w-1/3 items-center">
           <img src={image.url} alt={image.name} />
           <div className="text-l">{image.name}</div>
         </div>
