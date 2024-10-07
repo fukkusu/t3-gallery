@@ -16,14 +16,12 @@ export const ourFileRouter = {
 
     const user = auth();
 
-    if (!user.userId) throw new UploadThingError("Unauthorized");
+    if (!user.userId) throw new Error("Unauthorized");
     
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
-      // This code RUNS ON YOUR SERVER after upload
-      console.log("Upload complete for userId:", metadata.userId);
       await db.insert(images).values({
         name: file.name,
         url: file.url,
