@@ -4,14 +4,13 @@ import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
 
 export async function getMyImages() {
+  const user = auth();
 
-    const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
 
-    if(!user.userId) throw new Error("Unauthorized");
-
-    const images = await db.query.images.findMany({
-        where: (model, { eq }) => eq(model.userID, user.userId),
-        orderBy: (model, { desc }) => desc(model.id),
-      });
-      return images;
+  const images = await db.query.images.findMany({
+    where: (model, { eq }) => eq(model.userID, user.userId),
+    orderBy: (model, { desc }) => desc(model.id),
+  });
+  return images;
 }

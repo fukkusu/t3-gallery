@@ -21,9 +21,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable} flex flex-col gap-4`}>
-        <NextSSRPlugin
-          routerConfig={extractRouterConfig(ourFileRouter)}
-        />
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <body>
           <TopNav />
           {children}
