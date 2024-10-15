@@ -2,13 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
-  background: rgb(42, 244, 172);
+  /* background: rgb(42, 244, 172); */
   background: linear-gradient(
-    132deg,
-    rgba(42, 244, 172, 1) 0%,
-    rgba(104, 9, 121, 0.7861738445378151) 31%,
-    rgba(0, 212, 255, 0.7637648809523809) 100%
+    180deg,
+    rgba(255,255,255, 1) 0%,
+    rgba(211, 160, 220, 0.77) 21%,
+    rgba(255, 255, 255, 0.7637648809523809) 100%
   );
-  color: aliceblue;
+  color: rgb(24, 55, 82);
+}
+
+dialog {
+  max-width: 100vw;
+  max-height: 100vh;
 }
