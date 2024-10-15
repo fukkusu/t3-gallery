@@ -7,9 +7,9 @@ import { UploadButton } from "~/utils/uploadthing";
 export function TopNav() {
   const router = useRouter();
   return (
-    <nav className="text-l flex w-full items-center justify-between p-8 font-semibold">
+    <nav className="text-l flex w-full items-center justify-between p-8 font-semibold border-b-pink-950">
       <div>Gallery</div>
-      <div className="text-xl font-bold">The cute Tamagotchi Lineup</div>
+      <div className="text-xl text-center font-bold">The cute Tamagotchi Lineup</div>
       <div className="flex flex-row">
         <SignedOut>
           <SignInButton />
