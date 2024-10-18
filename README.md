@@ -17,6 +17,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 - [x] Routing/image page (parallel route)
 - [x] Beautify upload button
 - [x] Toastify with Shadcn
+- [x] Analytics (posthog)
 - [ ] Delete button (w/ Server Actions)
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
