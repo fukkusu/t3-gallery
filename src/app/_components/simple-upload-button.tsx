@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "~/utils/uploadthing";
 import { toast } from "sonner";
@@ -7,8 +8,9 @@ import { usePostHog } from "posthog-js/react";
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
 
-const useUpLoadThingInputProps = (...args: Input) => {
+const useUploadThingInputProps = (...args: Input) => {
     const $ut = useUploadThing(...args);
+
     const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
 
@@ -21,6 +23,7 @@ const useUpLoadThingInputProps = (...args: Input) => {
     return {
         inputProps: {
             onChange,
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             multiple: ($ut.permittedFileInfo?.config?.image?.maxFileCount ?? 1) > 1,
             accept: "image/*",
         },
@@ -46,7 +49,7 @@ export function SimpleUploadButton() {
     const router = useRouter();
     const posthog = usePostHog();
 
-    const { inputProps } = useUpLoadThingInputProps("imageUploader", {
+    const { inputProps } = useUploadThingInputProps("imageUploader", {
         onUploadBegin() {
             posthog.capture("upload_begin");
             toast(<div className="flex gap-2"><LoadingSpinnerSVG /><span className="text-lg items-center">Uploading...</span></div>, {
