@@ -23,8 +23,7 @@ const useUploadThingInputProps = (...args: Input) => {
     return {
         inputProps: {
             onChange,
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-            multiple: ($ut.permittedFileInfo?.config?.image?.maxFileCount ?? 1) > 1,
+            multiple: ($ut.permittedFileInfo?.config?.image?.maxFileCount ?? 10) > 1,
             accept: "image/*",
         },
         isUploading: $ut.isUploading,
