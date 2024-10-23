@@ -12,10 +12,10 @@ export const ourFileRouter = {
       const user = auth();
       if (!user.userId) throw new Error("Unauthorized");
 
-      const fullUserData = await clerkClient.users.getUser(user.userId);
+      // const fullUserData = await clerkClient.users.getUser(user.userId);
 
-      if (fullUserData?.privateMetadata?.["can-upload"] !== true)
-        throw new Error("User Does Not Have Upload Permissions");
+      // if (fullUserData?.privateMetadata?.["can-upload"] !== true)
+      //   throw new Error("User Does Not Have Upload Permissions");
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.userId };
