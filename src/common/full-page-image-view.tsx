@@ -2,7 +2,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 import { Button } from "~/components/ui/button";
 import { deleteImage, getImage } from "~/server/queries";
 
-export async function FullPageImageView(props: { photoId: string }) {
+export default async function FullPageImageView(props: { photoId: string }) {
     const idAsNumber = Number(props.photoId);
     if (Number.isNaN(idAsNumber)) throw new Error("Invalid image id");
 
